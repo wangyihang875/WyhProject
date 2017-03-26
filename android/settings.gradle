@@ -1,0 +1,3 @@
+rootProject.name = 'WyhProject'
+
+include ':app'
