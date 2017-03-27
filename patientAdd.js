@@ -61,7 +61,7 @@ class PatientAdd extends Component{
                     </View>
                     <View style={styles.inputLine}>
                         <Text style={styles.labelText}>姓名</Text>
-                        <TextInput onChangeText={(msg)=>this.setState({patientName:msg})} placeholder={'请输入姓名'} placeholderTextColor="#A9A9A9" style={styles.input}></TextInput>
+                        <TextInput onChangeText={(msg)=>this.setState({patientName:msg})} placeholder={'请输入患者姓名'} placeholderTextColor="#A9A9A9" style={styles.input}></TextInput>
                     </View>
                     <View style={styles.inputLine}>
                         <Text style={styles.labelText}>性别</Text>
