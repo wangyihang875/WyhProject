@@ -109,6 +109,7 @@ class PatientList extends Component{
     }
 
 
+    //noinspection JSAnnotator
     _renderRow = (rowData: string,sectionID: number, rowID: number)=>{
         var imgSrc = rowData.sex==="男" ? require('./image/m.png') : require('./image/w.png');
         return (
