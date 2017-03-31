@@ -208,15 +208,15 @@ var styles=StyleSheet.create({
     },
     saveBtn:{
         backgroundColor:'#62a2f3',
+        marginTop:30,
+        marginHorizontal:20,
+        paddingVertical:10,
         borderRadius:8,
-        marginHorizontal:10,
-        marginVertical:20
     },
     saveBtnText:{
         color:'#ffffff',
-        alignSelf:'center',
         fontSize:16,
-        paddingVertical:8
+        textAlign:'center'
     },
 
 

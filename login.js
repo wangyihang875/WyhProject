@@ -67,6 +67,10 @@ class Login extends Component{
                     component:BottomNavigator,
                     params:{
                         departmentno:responseJson.data.departmentno,
+                        realname:responseJson.data.realname,
+                        mobilephone:responseJson.data.mobilephone,
+                        hospitalName:responseJson.data.hospitalName,
+                        departmentName:responseJson.data.departmentName,
                     }
                 });
             }else if(responseJson.data.msg==="0003"){
@@ -145,18 +149,18 @@ var styles=StyleSheet.create({
       height:16,
       marginTop:20,
   },
-  loginBtn:{
-      backgroundColor:'#62a2f3',
-      marginTop:30,
-      width:totalWidth*0.8,
-      height:40,
-      borderRadius:8
-  },
-  loginText:{
-      color:'#ffffff',
-      alignSelf:'center',
-      paddingTop:8,
-      fontSize:16
-  }
+    loginBtn:{
+        backgroundColor:'#62a2f3',
+        marginTop:30,
+        width:totalWidth*0.8,
+        height:40,
+        borderRadius:8
+    },
+    loginText:{
+        color:'#ffffff',
+        alignSelf:'center',
+        paddingTop:8,
+        fontSize:16
+    }
 });
 export default Login;

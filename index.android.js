@@ -1,35 +1,69 @@
-import React, { Component } from 'react'
-import App from './app/App'
-import ListStore from './app/mobx/listStore'
-
+/**
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+import React, { Component } from 'react';
 import {
-    AppRegistry,
-    Navigator
-} from 'react-native'
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Navigator,
+  BackAndroid
+} from 'react-native';
 
-class ReactNativeMobX extends Component {
-    renderScene (route, navigator) {
-        return <route.component {...route.passProps} navigator={navigator} />
+import Login from './login';
+
+//禁用手势
+const NoBackSwipe = {
+    ...Navigator.SceneConfigs.HorizontalSwipeJump,
+    gestures: {
+        pop: {}
     }
-    configureScene (route, routeStack) {
-        if (route.type === 'Modal') {
-            return Navigator.SceneConfigs.FloatFromBottom
-        }
-        return Navigator.SceneConfigs.PushFromRight
-    }
-    render () {
-        return (
-            <Navigator
-                configureScene={this.configureScene.bind(this)}
-                renderScene={this.renderScene.bind(this)}
-                initialRoute={{
-                    component: App,
-                    passProps: {
-                        store: ListStore
-                    }
-                }} />
-        )
-    }
+};
+class NaviModule extends Component{
+
+
+
+  configureScene(route){
+      return NoBackSwipe;
+  }
+
+  renderScene(route,navigator){
+    let Component = route.component;
+    return <Component {...route.params} navigator={navigator} />
+  }
+
+  componentDidMount() {
+    var navigator = this.refs.navigator;
+    BackAndroid.addEventListener('NaviModuleListener',()=>{
+      if(navigator && navigator.getCurrentRoutes().length > 1){
+        navigator.pop();
+        return true;
+      }
+      return false;
+    })
+  }
+
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('NaviModuleListener');
+  }
+
+  render() {
+    return (
+      <Navigator
+        ref="navigator"
+        initialRoute={{name:'login',component: Login}}
+        configureScene={this.configureScene}
+        renderScene={this.renderScene}
+      />
+    );
+  }
 }
 
-AppRegistry.registerComponent('WyhProject',()=>ReactNativeMobX);
+
+
+AppRegistry.registerComponent('WyhProject',()=>NaviModule);

@@ -17,7 +17,7 @@ import {
 import TabNavigator from 'react-native-tab-navigator';
 import PatientList from './patientList';
 import PatientAdd from './patientAdd';
-import Test3 from './test3';
+import Center from './center';
 let totalWidth = Dimensions.get('window').width;
 let totalHeight = Dimensions.get('window').height;
 class BottomNavigator extends Component{
@@ -60,7 +60,7 @@ class BottomNavigator extends Component{
                         renderIcon={() => <Image style={styles.icon} source={require("./image/center.png")} />}
                         renderSelectedIcon={() => <Image style={styles.icon} source={require("./image/center_pressed.png")} />}
                         onPress={() => this.setState({ selectedTab: '个人中心' })}>
-                        <Test3 />
+                        <Center {...this.props}/>
                     </TabNavigator.Item>
                 </TabNavigator>
             </View>
