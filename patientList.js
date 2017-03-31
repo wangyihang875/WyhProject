@@ -42,8 +42,8 @@ class PatientList extends Component{
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'token': 'FnureEYnavbeGhlUVnyfww==',
             },
-            body: "departmentno=" + this.props.departmentno + "&start=0&rows=10&patientkey="
-            // body: "departmentno=DEPA00000028&start="+this.state.pageNum+"&rows="+this.state.pageSize+"&patientkey="
+            // body: "departmentno=" + this.props.departmentno + "&start=0&rows=10&patientkey="
+            body: "departmentno=" + this.props.departmentno + "&start="+this.state.pageNum+"&rows="+this.state.pageSize+"&patientkey="
         }).then(
             (response) =>response.json()
         ).then((responseJson) => {
@@ -105,7 +105,7 @@ class PatientList extends Component{
 
     _onPress(idcard){
         const {navigator} = this.props;
-        navigator.replace({
+        navigator.push({
             name:'patientDetail',
             component:PatientDetail,
             params:{
