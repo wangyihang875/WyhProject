@@ -12,6 +12,7 @@
     "react": "~15.3.1",
     "react-native": "0.37.0",
     "react-native-scrollable-tab-view": "^0.6.3",
+    "react-native-storage": "^0.1.5",
     "whatwg-fetch": "^2.0.0"
   },
   "devDependencies": {

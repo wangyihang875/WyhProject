@@ -204,7 +204,8 @@ var styles=StyleSheet.create({
         flex:3,
         textAlign:'right',
         fontSize:17,
-        height:58
+        height:58,
+        borderBottomWidth:0
     },
     saveBtn:{
         backgroundColor:'#62a2f3',

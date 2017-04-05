@@ -13,7 +13,7 @@ import {
   TextInput,
   Alert,TouchableOpacity
 } from 'react-native';
-
+import Login from './login';
 class Center extends Component{
     constructor(props) {
         super(props);
@@ -23,7 +23,17 @@ class Center extends Component{
     }
 
     logoutHandler(){
-        alert(123);
+        storage.remove({
+            key: 'loginState'
+        });
+        const {navigator} = this.props;
+        navigator.replace({
+            name:'login',
+            component:Login,
+            params:{
+
+            }
+        });
     }
 
   render(){

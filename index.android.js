@@ -53,6 +53,7 @@ class NaviModule extends Component{
   }
 
   render() {
+
     return (
       <Navigator
         ref="navigator"
